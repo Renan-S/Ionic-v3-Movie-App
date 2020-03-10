@@ -1,3 +1,6 @@
+import { PerfilPageModule } from './../pages/perfil/perfil.module';
+import { ConfiguracoesPageModule } from './../pages/configuracoes/configuracoes.module';
+import { SobrePageModule } from './../pages/sobre/sobre.module';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FeedPageModule } from '../pages/feed/feed.module';
@@ -26,7 +29,10 @@ import { MyCardPageModule } from '../pages/my-card/my-card.module';
     FeedPageModule,
     IntroPageModule,
     MyCardPageModule,
-    HttpModule
+    HttpModule,
+    ConfiguracoesPageModule,
+    SobrePageModule,
+    PerfilPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
