@@ -1,3 +1,4 @@
+import { MovieEnum } from './../../enum/movie.enum';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
@@ -9,17 +10,12 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class MovieProvider {
-  private baseApiUrl: String = "https://api.themoviedb.org/3";
 
   constructor(public http: Http) {
     console.log('Hello MovieProvider Provider');
   }
 
   getLatestMovies () {
-    return this.http.get(`${this.baseApiUrl}/movie/popular?api_key=${this.getApiKey()}`);
-  }
-
-  getApiKey () {
-    return "2e56d66e20f43b7c2b71deb6dfa1d38c"
+    return this.http.get(`${MovieEnum.HOST}/movie/popular?api_key=${MovieEnum.API_KEY}`);
   }
 }

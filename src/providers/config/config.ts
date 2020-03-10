@@ -5,12 +5,6 @@ let configName = "config";
 @Injectable()
 export class ConfigProvider {
 
-  private config = {
-    showSlide: false,
-    name: "",
-    username: ""
-  }
-
   constructor() {
 
   }
@@ -21,11 +15,11 @@ export class ConfigProvider {
 
   //? = optional params
   setConfigData (showSlide?: boolean, name?: string, username?: string) {
-    // let config = {
-    //   showSlide: false,
-    //   name: "",
-    //   username: ""
-    // }
+    let config = {
+      showSlide: false,
+      name: "",
+      username: ""
+    }
 
     if(showSlide) {
       config.showSlide = showSlide;
