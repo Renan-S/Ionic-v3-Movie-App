@@ -1,9 +1,7 @@
-import { ConfiguracoesPage } from './configuracoes';
 import { PerfilPage } from './../perfil/perfil';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SobrePage } from '../sobre/sobre';
-import { destroyView } from '@angular/core/src/view/view';
 
 /**
  * Generated class for the ConfiguracoesPage page.
@@ -32,10 +30,6 @@ export class ConfiguracoesPage {
 
   openAbout() {
     this.navCtrl.push(SobrePage)
-  }
-
-  closeMenu() {
-    this.navCtrl.pop()
   }
 
 }

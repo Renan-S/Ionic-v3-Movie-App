@@ -1,3 +1,4 @@
+import { DetailMoviePageModule } from './../pages/detail-movie/detail-movie.module';
 import { PerfilPageModule } from './../pages/perfil/perfil.module';
 import { ConfiguracoesPageModule } from './../pages/configuracoes/configuracoes.module';
 import { SobrePageModule } from './../pages/sobre/sobre.module';
@@ -16,6 +17,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IntroPageModule } from '../pages/intro/intro.module';
 import { MovieProvider } from '../providers/movie/movie';
 import { MyCardPageModule } from '../pages/my-card/my-card.module';
+import { DetailMovieProvider } from '../providers/detail-movie/detail-movie';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,9 +33,11 @@ import { MyCardPageModule } from '../pages/my-card/my-card.module';
     IntroPageModule,
     MyCardPageModule,
     HttpModule,
+    HttpClientModule,
     ConfiguracoesPageModule,
     SobrePageModule,
-    PerfilPageModule
+    PerfilPageModule,
+    DetailMoviePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,7 +49,8 @@ import { MyCardPageModule } from '../pages/my-card/my-card.module';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MovieProvider
+    MovieProvider,
+    DetailMovieProvider
   ]
 })
 export class AppModule {}

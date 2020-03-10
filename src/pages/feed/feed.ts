@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
+import { DetailMoviePage } from '../detail-movie/detail-movie';
 
 /**
  * Generated class for the FeedPage page.
@@ -22,25 +23,73 @@ import { MovieProvider } from '../../providers/movie/movie';
 export class FeedPage {
   private newDate: Date = new Date();
   public movieList = []
+  private loading;
+  private infiniteScroll;
+  public refresher;
+  public isRefreshing: boolean = false;
+  public page: number = 1;
 
   constructor(
     public navCtrl: NavController, 
+    public loadingController: LoadingController,
     public navParams: NavParams,
     private movieProvider: MovieProvider) {
   }
 
-  ionViewDidLoad() {
-    //Subscribe is an observable function. If the return is successful then data is runned.
-    this.movieProvider.getLatestMovies().subscribe( 
-      data => {
-        const response = (data as any); //Cast to have access to the _body
-        const returnObj = JSON.parse(response._body); //Angular transforms to text, them you have to parse to JSON
-        this.movieList = returnObj.results
-        console.log(data); //Pure object return from the API
-        console.log(returnObj); //JSON parsed object after Cast and observing the _body
+  ionViewDidEnter() {
+    this.getMovies();
+  }
+
+  async presentLoading() {
+     this.loading = await this.loadingController.create({
+      content: 'Please wait...',
+    });
+    await this.loading.present();
+  }
+
+  async closeLoading() {
+     this.loading.dismiss();
+  }
+
+  getMovies(newPage: boolean = false) {
+    this.presentLoading();
+    this.movieProvider.getLatestMovies(this.page).subscribe( 
+      (response: any) => {
+
+        if(newPage) {
+          this.movieList = this.movieList.concat(response.results);
+          this.infiniteScroll.complete();
+        } else {
+          this.movieList = response.results
+        }
+        this.closeLoading();
+
+        if(this.isRefreshing) {
+          this.refresher.complete() 
+          this.isRefreshing=false}
     }, error => {
         console.log(error);
+        this.closeLoading();
+        if(this.isRefreshing) {
+          this.refresher.complete() 
+          this.isRefreshing=false}
     })
+  }
+
+  doRefresh(refresher) {
+    this.refresher = refresher;
+    this.isRefreshing = true;
+    this.getMovies();
+  }
+
+  openDetails(movie) {
+    this.navCtrl.push(DetailMoviePage, { id: movie.id })
+  }
+
+  loadData(event) {
+    this.page++;
+    this.infiniteScroll = event;
+    this.getMovies(true)
   }
 
   public card: object = {
