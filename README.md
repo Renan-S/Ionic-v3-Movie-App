@@ -12,12 +12,12 @@
 - ionic g directive (Directives are arquives to change the components behavior)
 
 2. Ionic lyfecyle;
-- 1.ngOnInit 
-- 2.ionViewWillEnter
+- 1. ngOnInit 
+- 2. ionViewWillEnter
 - 3. ionViewDidEnter (DidLoad if only one time)
 - 4. ionViewWillLeave
 - 5. ionViewDidLeave
-- 6. ionViewDestroy
+- 6. ngOnDestroy
 
 3. Using framework specifics like: 
   - Providers [View](https://github.com/Renan-S/Ionic-v3-mockApp/tree/master/src/providers)
