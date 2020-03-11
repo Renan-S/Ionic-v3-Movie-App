@@ -1,7 +1,7 @@
 import { DetailMoviePageModule } from './../pages/detail-movie/detail-movie.module';
-import { PerfilPageModule } from './../pages/perfil/perfil.module';
-import { ConfiguracoesPageModule } from './../pages/configuracoes/configuracoes.module';
-import { SobrePageModule } from './../pages/sobre/sobre.module';
+import { ProfilePageModule } from '../pages/profile/profile.module';
+import { ConfigurationsPageModule } from '../pages/configurations/configurations.module';
+import { AboutPageModule } from '../pages/about/about.module';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FeedPageModule } from '../pages/feed/feed.module';
@@ -34,9 +34,9 @@ import { HttpClientModule } from '@angular/common/http';
     MyCardPageModule,
     HttpModule,
     HttpClientModule,
-    ConfiguracoesPageModule,
-    SobrePageModule,
-    PerfilPageModule,
+    ConfigurationsPageModule,
+    AboutPageModule,
+    ProfilePageModule,
     DetailMoviePageModule
   ],
   bootstrap: [IonicApp],

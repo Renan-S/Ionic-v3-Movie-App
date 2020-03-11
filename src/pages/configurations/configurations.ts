@@ -1,7 +1,7 @@
-import { PerfilPage } from './../perfil/perfil';
+import { AboutPage } from './../about/about';
+import { ProfilePage } from '../profile/profile';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SobrePage } from '../sobre/sobre';
 
 /**
  * Generated class for the ConfiguracoesPage page.
@@ -13,23 +13,23 @@ import { SobrePage } from '../sobre/sobre';
 @IonicPage()
 @Component({
   selector: 'page-configuracoes',
-  templateUrl: 'configuracoes.html',
+  templateUrl: 'configurations.html',
 })
-export class ConfiguracoesPage {
-  public rootPage = PerfilPage
+export class ConfigurationsPage {
+  public rootPage = ProfilePage
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ConfiguracoesPage');
+    console.log('ionViewDidLoad ConfigurationsPage');
   }
 
   openProfile() {
-    this.navCtrl.push(PerfilPage)
+    this.navCtrl.push(ProfilePage)
   }
 
   openAbout() {
-    this.navCtrl.push(SobrePage)
+    this.navCtrl.push(AboutPage)
   }
 
 }

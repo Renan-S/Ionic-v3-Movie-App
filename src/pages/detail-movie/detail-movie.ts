@@ -29,17 +29,18 @@ export class DetailMoviePage {
 
   ionViewDidEnter() {
     this.movieId = this.navParams.get("id")
-    console.log("Did Enter", this.movie)
     this.getMovieDetail(this.movieId)
     console.log("After Did Enter", this.movie)
   }
 
   getMovieDetail(movieId) {
-    console.log("View call")
     this.detailMovieProvider.getDetailMovie(movieId).subscribe(
       (response: any) => {
         console.log ("In response",response) 
-        this.movie = response}, error => {console.log(error)}
+        this.movie = response
+      }, error => {
+        console.log(error)
+      }
       
     )
   }
