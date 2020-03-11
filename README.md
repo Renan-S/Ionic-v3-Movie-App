@@ -12,9 +12,14 @@
 - ionic g directive (Directives are arquives to change the components behavior)
 
 2. Ionic lyfecyle;
-- 
+- 1.ngOnInit 
+- 2.ionViewWillEnter
+- 3. ionViewDidEnter (DidLoad if only one time)
+- 4. ionViewWillLeave
+- 5. ionViewDidLeave
+- 6. ionViewDestroy
 
-2. Using framework specifics like: 
+3. Using framework specifics like: 
   - Providers [View](https://github.com/Renan-S/Ionic-v3-mockApp/tree/master/src/providers)
   - Enum [View](https://github.com/Renan-S/Ionic-v3-mockApp/tree/master/src/enum)
   - navControl.push() [View](https://github.com/Renan-S/Ionic-v3-mockApp/blob/master/src/pages/feed/feed.ts)
@@ -29,7 +34,7 @@
   - ion-infinite-scroll [View](https://github.com/Renan-S/Ionic-v3-mockApp/blob/master/src/pages/feed/feed.ts)
   - ion-note [View](https://github.com/Renan-S/Ionic-v3-mockApp/blob/master/src/pages/feed/feed.ts)
 
-3. Non specifics:
+4. Non specifics:
   - *ngIf [View](https://github.com/Renan-S/Ionic-v3-mockApp/blob/master/src/pages/detail-movie/detail-movie.html)
   - *ngFor [View](https://github.com/Renan-S/Ionic-v3-mockApp/blob/master/src/pages/feed/feed.html)
   - API Consume [View](https://github.com/Renan-S/Ionic-v3-mockApp/blob/master/src/pages/detail-movie/detail-movie.ts)
